@@ -14,6 +14,11 @@ namespace DemoAsp.FullMvc.Infrastructure
             set { HttpContext.Current.Session[nameof(User)] = value; }
         }
 
+        public static bool IsAdmin
+        {
+            get { return User?.Role.HasFlag(RoleUser.Admin) ?? false; }
+        }
+
         public static void Abandon()
         {
             HttpContext.Current.Session.Abandon();

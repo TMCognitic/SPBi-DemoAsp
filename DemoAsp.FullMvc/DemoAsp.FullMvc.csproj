@@ -125,6 +125,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Attributes\AuthorizeManagerAttribute.cs" />
     <Compile Include="Infrastructure\SessionManager.cs" />
     <Compile Include="Models\Forms\LoginForm.cs" />
     <Compile Include="Models\Forms\RegisterForm.cs" />
@@ -169,6 +170,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <None Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Home\Secret.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

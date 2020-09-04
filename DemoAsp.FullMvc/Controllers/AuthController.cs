@@ -39,7 +39,13 @@ namespace DemoAsp.FullMvc.Controllers
                     command.AddParameter("Email", form.Email);
                     command.AddParameter("Passwd", form.Passwd);
 
-                    User user = connection.ExecuteReader(command, dr => new User() { Id = (int)dr["Id"], LastName = (string)dr["LastName"], FirstName = (string)dr["FirstName"], Email = (string)dr["Email"] }).SingleOrDefault();
+                    User user = connection.ExecuteReader(command, dr => new User() { 
+                        Id = (int)dr["Id"], 
+                        LastName = (string)dr["LastName"], 
+                        FirstName = (string)dr["FirstName"], 
+                        Email = (string)dr["Email"],
+                        Role = (RoleUser)dr["Role"]
+                    }).SingleOrDefault();
 
                     if(user is null)
                     {

@@ -1,4 +1,6 @@
 ﻿using DemoAsp.FullMvc.Infrastructure;
+using DemoAsp.FullMvc.Infrastructure.Attributes;
+using DemoAsp.FullMvc.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,8 @@ namespace DemoAsp.FullMvc.Controllers
     {
         public ActionResult Index()
         {
-            return View("Error");
+            return View();
+            //return View("Error");
         }
 
         public ActionResult About()
@@ -21,10 +24,17 @@ namespace DemoAsp.FullMvc.Controllers
             return View();
         }
 
+        [AuthorizeManager]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        [AuthorizeManager(RoleUser.Admin)]
+        public ActionResult Secret()
+        {
             return View();
         }
     }
