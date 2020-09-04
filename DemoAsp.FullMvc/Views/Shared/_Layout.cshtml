@@ -48,10 +48,11 @@
                     {
                         <li>@Html.ActionLink($"Se déconnecter ({SessionManager.User.LastName} {SessionManager.User.FirstName})", "Logout", "Auth")</li>
                     }
-                    @if(SessionManager.IsAdmin)
+                    @if (SessionManager.IsAdmin)
                     {
-                        <li>@Html.ActionLink($"Zone Admin", "", "")</li>
-                    }
+
+                        <li>@Html.ActionLink("Zone Admin", "Index", "Home", new { Area = "Admin" }, new { })</li>
+                }
                 </ul>
             </div>
         </div>
