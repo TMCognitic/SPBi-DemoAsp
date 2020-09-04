@@ -27,7 +27,11 @@
                     {
                         <span class="icon-bar"></span>
                     }
-                </button>
+                    @if (SessionManager.IsAdmin)
+                    {
+                        <span class="icon-bar"></span>
+                    }
+                    </button>
                 @Html.ActionLink("Demo Asp Mvc", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
@@ -43,6 +47,10 @@
                     else
                     {
                         <li>@Html.ActionLink($"Se déconnecter ({SessionManager.User.LastName} {SessionManager.User.FirstName})", "Logout", "Auth")</li>
+                    }
+                    @if(SessionManager.IsAdmin)
+                    {
+                        <li>@Html.ActionLink($"Zone Admin", "", "")</li>
                     }
                 </ul>
             </div>
